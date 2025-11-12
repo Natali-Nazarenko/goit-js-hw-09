@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HW-09</title>
+    <title>Gallery</title>
+    <script type="module" crossorigin src="/goit-js-hw-09/1-gallery.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-09/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-09/assets/vendor-B-WyX8ve.js">
     <link rel="stylesheet" crossorigin href="/goit-js-hw-09/assets/styles-DbunSQvJ.css">
   </head>
   <body>
@@ -18,7 +21,7 @@
       </a>
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="../1-gallery.html">Gallery</a>
+          <a class="nav-link active" href="../1-gallery.html">Gallery</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {=$highlight-curr}" href="../2-form.html">Form</a>
@@ -28,8 +31,16 @@
   </div>
 </header>
 
-    <main>
-    </main>
 
+    <main>
+      <div class="container">
+        <h1 class="main-title">
+          <span class="main-title-gradient">Welcome</span> to page Gallery
+        </h1>
+         <a class="back-link" href="./index.html">Go back</a>
+         <ul class="gallery"></ul>
+      </div>
+    </main>
+    <script src="simplelightbox/dist/simple-lightbox.min.js"></script>
   </body>
 </html>

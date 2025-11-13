@@ -4,6 +4,7 @@ const formData = {
 };
 
 const STORAGE_KEY = 'feedback-form-state';
+const data = loadFromLS(STORAGE_KEY);
 const form = document.querySelector('.feedback-form');
 
 
@@ -24,20 +25,20 @@ form.addEventListener('submit', (ev) => {
     formData.message = userMessage.get('message');
 
     if (!formData.email || !formData.message) {
+
         alert('Fill please all fields')
+
+    } else {
+
+        console.log(formData);
+        localStorage.removeItem(STORAGE_KEY);
+        formData.email = '';
+        formData.message = '';
+        form.reset();
     }
-
-    console.log(formData);
-
-    localStorage.removeItem(STORAGE_KEY);
-
-    formData.email = '';
-    formData.message = '';
-    form.reset();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const data = loadFromLS(STORAGE_KEY);
     form.elements.email.value = data?.email || '';
     form.elements.message.value = data?.message || '';
 })

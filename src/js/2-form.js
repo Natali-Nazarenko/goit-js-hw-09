@@ -7,10 +7,8 @@ const STORAGE_KEY = 'feedback-form-state';
 const data = loadFromLS(STORAGE_KEY);
 const form = document.querySelector('.feedback-form');
 
-
 form.addEventListener('input', () => {
     const userMessage = new FormData(form);
-
     formData.email = userMessage.get('email');
     formData.message = userMessage.get('message');
 
@@ -19,10 +17,11 @@ form.addEventListener('input', () => {
 
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
-    const userMessage = new FormData(form);
 
+    const userMessage = new FormData(form);
     formData.email = userMessage.get('email');
     formData.message = userMessage.get('message');
+    
 
     if (!formData.email || !formData.message) {
 
@@ -41,8 +40,10 @@ form.addEventListener('submit', (ev) => {
 document.addEventListener('DOMContentLoaded', () => {
     form.elements.email.value = data?.email || '';
     form.elements.message.value = data?.message || '';
-})
 
+    formData.email = data?.email || '';
+    formData.message = data?.message || '';
+})
 
 function saveToLS(key, value) {
     const dataJson = JSON.stringify(value);
@@ -56,6 +57,6 @@ function loadFromLS(key) {
         const value = JSON.parse(dataStorage);
         return value;
     } catch {
-        return dataStorage;
+        return null;
     }
 };
